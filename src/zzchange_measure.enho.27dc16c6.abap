@@ -1,0 +1,88 @@
+"Name: \PR:SAPLWF03\FO:ITEM_GLOBAL_SAVE\SE:BEGIN\EI
+ENHANCEMENT 0 ZZCHANGE_MEASURE.
+
+  DATA: MAW1         LIKE MAW1.
+  DATA: MARM         LIKE MARM.
+  DATA: VL_MEINS     TYPE MEINS.
+  DATA: VL_LABST     TYPE LABST.
+  DATA: VL_TOTAL     TYPE LABST.
+  DATA: VL_DECIMAL   TYPE P DECIMALS 3.
+  DATA: VL_DECIMAL_2 TYPE P DECIMALS 3.
+  data: VL_RDPRF     TYPE RDPRF.
+  DATA: VL_RDRGL     TYPE RDRGL.
+  DATA: VL_SWPAUF    TYPE SWPAUF.
+
+  IF UP_AUPO-ASTRA EQ '0002'.
+
+  CLEAR VL_TOTAL.
+
+  LOOP AT UT_AUFI.
+
+        CALL FUNCTION 'MAW1_SINGLE_READ'
+        EXPORTING
+          MATNR      = UP_AUPO-MATNR
+        IMPORTING
+          WMAW1      = MAW1
+        EXCEPTIONS
+          WRONG_CALL = 1
+          NOT_FOUND  = 2
+          OTHERS     = 3.
+
+
+      IF MAW1-WAUSM IS NOT INITIAL.
+
+        SELECT SINGLE MARA~MEINS INTO VL_MEINS FROM MARA WHERE MATNR EQ UP_AUPO-MATNR.
+
+      IF MAW1-WAUSM EQ VL_MEINS.
+
+        EXIT.
+
+      ELSE.
+
+        SELECT SINGLE MARC~RDPRF INTO VL_RDPRF FROM MARC WHERE MATNR EQ UP_AUPO-MATNR
+                                                          AND WERKS EQ UT_AUFI-FILNR.
+        IF SY-SUBRC EQ 0.
+        SELECT SINGLE RDPR~RDRGL INTO VL_RDRGL FROM RDPR WHERE RDPRF EQ VL_RDPRF.
+          IF SY-SUBRC EQ 0.
+            SELECT SINGLE TW06S~SWPAUF INTO VL_SWPAUF FROM TW06S WHERE RDRGL EQ VL_RDRGL
+                                                                   AND MEINS EQ 'KI'.
+            IF SY-SUBRC EQ 0.
+             VL_DECIMAL_2 = VL_SWPAUF / 100.
+            ENDIF.
+            ENDIF.
+        ENDIF.
+
+        CALL FUNCTION 'MARM_SINGLE_READ'
+          EXPORTING
+            MATNR      = UP_AUPO-MATNR
+            MEINH      = MAW1-WAUSM
+          IMPORTING
+            WMARM      = MARM
+          EXCEPTIONS
+            WRONG_CALL = 1
+            NOT_FOUND  = 2
+            OTHERS     = 3.
+
+        IF SY-SUBRC EQ 0.
+          UT_AUFI-IMNGU = UT_AUFI-IMNGU / MARM-UMREZ.
+          VL_LABST = TRUNC( UT_AUFI-IMNGU ).
+          VL_DECIMAL = FRAC( UT_AUFI-IMNGU ).
+          UT_AUFI-IMNGU = VL_LABST.
+          IF VL_DECIMAL GE VL_DECIMAL_2.
+            VL_LABST = VL_LABST + 1.
+            ENDIF.
+          UT_AUFI-PMNGU = VL_LABST.
+          UT_AUFI-BSTMG = VL_LABST.
+          MODIFY UT_AUFI.
+          VL_TOTAL = VL_TOTAL + VL_LABST.
+        ENDIF.
+
+      ENDIF.
+    ENDIF.
+  ENDLOOP.
+
+ UP_AUPO-PMNGE = VL_TOTAL.
+ UP_AUPO-IMNGE = VL_TOTAL.
+ ENDIF.
+
+ENDENHANCEMENT.

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_ENHO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOOL>HOOK_IMPL</TOOL>
+   <SHORTTEXT>Cambio de Clase de Condicion de Dscto en Cabecero Promocion</SHORTTEXT>
+   <ORIGINAL_OBJECT>
+    <PGMID>R3TR</PGMID>
+    <ORG_OBJ_TYPE>FUGR</ORG_OBJ_TYPE>
+    <ORG_OBJ_NAME>BAPIS1068</ORG_OBJ_NAME>
+    <ORG_MAIN_TYPE>FUGR</ORG_MAIN_TYPE>
+    <ORG_MAIN_NAME>BAPIS1068</ORG_MAIN_NAME>
+    <PROGRAMNAME>SAPLBAPIS1068</PROGRAMNAME>
+   </ORIGINAL_OBJECT>
+   <ENHANCEMENTS>
+    <ENH_HOOK_IMPL>
+     <PROGRAMNAME>SAPLBAPIS1068</PROGRAMNAME>
+     <ENHMODE>D</ENHMODE>
+     <FULL_NAME>\PR:SAPLBAPIS1068\FO:CHECK_DISCOUNTS\SE:BEGIN\EI</FULL_NAME>
+    </ENH_HOOK_IMPL>
+   </ENHANCEMENTS>
+   <FILES>
+    <item>
+     <NAME>\PR:SAPLBAPIS1068\FO:CHECK_DISCOUNTS\SE:BEGIN\EI</NAME>
+     <FILE>037aa5f4</FILE>
+    </item>
+   </FILES>
+   <SOTR>
+    <item>
+     <HEADER>
+      <CONCEPT>5A2AD2AEC9FC2AE7E1000000C0A8645A</CONCEPT>
+      <CREA_LAN>S</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>AAI=</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>5A2AD2AEC9FC2AE7E1000000C0A8645A</CONCEPT>
+       <LANGU>S</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>089</LENGTH>
+       <TEXT>Cambio de Clase de Condicion de Dscto en Cabecero Promocion</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
+   </SOTR>
+   <SOTR_USE>
+    <SOTR_USE>
+     <PGMID>R3TR</PGMID>
+     <OBJECT>ENHO</OBJECT>
+     <OBJ_NAME>ZENH_HEADER_PROMO_KSCHL_PERC</OBJ_NAME>
+     <CONCEPT>5A2AD2AEC9FC2AE7E1000000C0A8645A</CONCEPT>
+     <LFD_NUM>0001</LFD_NUM>
+    </SOTR_USE>
+   </SOTR_USE>
+  </asx:values>
+ </asx:abap>
+</abapGit>

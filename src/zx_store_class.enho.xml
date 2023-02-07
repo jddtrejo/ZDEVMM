@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_ENHO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOOL>BADI_IMPL</TOOL>
+   <SHORTTEXT>Asignacion de destinatarios automaticos</SHORTTEXT>
+   <SPOT_NAME>/STWACS/EHS_WB</SPOT_NAME>
+   <IMPL>
+    <ENH_BADI_IMPL_DATA>
+     <SPOT_NAME>/STWACS/EHS_WB</SPOT_NAME>
+     <BADI_NAME>/STWACS/X_STORE_CLASS</BADI_NAME>
+     <IMPL_NAME>ZX_STORE_CLASS</IMPL_NAME>
+     <IMPL_CLASS>ZX_STORE_CLASS</IMPL_CLASS>
+     <ACTIVE>X</ACTIVE>
+     <IMPL_SHORTTEXT>Asignacion destinatarios y emisores</IMPL_SHORTTEXT>
+     <IMPL_SHORTTEXT_ID>51AFCE7CD91A632EE10000000A0001EC</IMPL_SHORTTEXT_ID>
+    </ENH_BADI_IMPL_DATA>
+   </IMPL>
+   <SOTR>
+    <item>
+     <HEADER>
+      <CONCEPT>51AE2433DB78632FE10000000A0001EC</CONCEPT>
+      <CREA_LAN>S</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>AAI=</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>51AE2433DB78632FE10000000A0001EC</CONCEPT>
+       <LANGU>S</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>059</LENGTH>
+       <TEXT>Asignacion de destinatarios automaticos</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
+    <item>
+     <HEADER>
+      <CONCEPT>51AFCE7CD91A632EE10000000A0001EC</CONCEPT>
+      <CREA_LAN>S</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>AAI=</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>51AFCE7CD91A632EE10000000A0001EC</CONCEPT>
+       <LANGU>S</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>053</LENGTH>
+       <TEXT>Asignacion destinatarios y emisores</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
+   </SOTR>
+   <SOTR_USE>
+    <SOTR_USE>
+     <PGMID>R3TR</PGMID>
+     <OBJECT>ENHO</OBJECT>
+     <OBJ_NAME>ZX_STORE_CLASS</OBJ_NAME>
+     <CONCEPT>51AE2433DB78632FE10000000A0001EC</CONCEPT>
+     <LFD_NUM>0001</LFD_NUM>
+    </SOTR_USE>
+    <SOTR_USE>
+     <PGMID>R3TR</PGMID>
+     <OBJECT>ENHO</OBJECT>
+     <OBJ_NAME>ZX_STORE_CLASS</OBJ_NAME>
+     <CONCEPT>51AFCE7CD91A632EE10000000A0001EC</CONCEPT>
+     <LFD_NUM>0001</LFD_NUM>
+    </SOTR_USE>
+   </SOTR_USE>
+  </asx:values>
+ </asx:abap>
+</abapGit>
